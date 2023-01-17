@@ -1,0 +1,78 @@
+Welcome to lab1. Using list size: 2
+ALERT
+LISTGEN x, LISTIP x
+DELGEN x, DELIP x
+SCANGEN x
+PRINT
+QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP1, Fall 2020
+# testinput.txt
+# 
+# Test script to show a few simple tests for the sequential list ADT.
+# 
+# TEST 1:  Add three entries to list.  
+# 
+Generator component:Signature:Revision:Dest IP address:Source IP address:Destination port number:Source port number:Time:
+
+Added: 111
+Generator component:Signature:Revision:Dest IP address:Source IP address:Destination port number:Source port number:Time:
+
+Added: 551
+Generator component:Signature:Revision:Dest IP address:Source IP address:Destination port number:Source port number:Time:
+
+Added: 100 and doubled list size
+# 
+# TEST 2: Print the list and verify three entries are sorted 
+# 
+List has 3 records. DB size is 4
+1: [100:111:3] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 3
+2: [111:100:1] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 1
+3: [551:500:2] (gen, sig, rev): Dest IP: 1501, Src: 5, Dest port: 2, Src: 5, Time: 2
+# 
+# TEST 3:  Add a second and a third 111 entry in the list
+# 
+Generator component:Signature:Revision:Dest IP address:Source IP address:Destination port number:Source port number:Time:
+
+Added: 111
+Generator component:Signature:Revision:Dest IP address:Source IP address:Destination port number:Source port number:Time:
+
+Added: 111 and doubled list size
+# 
+# TEST 4: Print the list, verify three entrys for 111, and five total entries
+# 
+List has 5 records. DB size is 8
+1: [100:111:3] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 3
+2: [111:100:1] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 1
+3: [111:101:4] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 4
+4: [111:105:5] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 5
+5: [551:500:2] (gen, sig, rev): Dest IP: 1501, Src: 5, Dest port: 2, Src: 5, Time: 2
+# 
+# TEST 5: Scan for attack on with alert 111 and then print details
+# 
+A set with generator 111 has 3 alerts
+Found 1 sets
+[111:100:1] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 1
+[111:101:4] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 4
+[111:105:5] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 5
+Found 3 matching generator alerts 111
+[100:111:3] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 3
+[111:100:1] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 1
+Found 2 alerts matching IP 1500
+# 
+# TEST 6: Remove the last element in the list. Then removed records with Dest IP 1500
+# 
+Removed 1 matching generator alerts 551
+List has 4 records. DB size is 8
+1: [100:111:3] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 3
+2: [111:100:1] (gen, sig, rev): Dest IP: 1500, Src: 2, Dest port: 1, Src: 1, Time: 1
+3: [111:101:4] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 4
+4: [111:105:5] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 5
+Removed 2 alerts matching IP 1500
+List has 2 records. DB size is 8
+1: [111:101:4] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 4
+2: [111:105:5] (gen, sig, rev): Dest IP: 1504, Src: 2, Dest port: 1, Src: 9, Time: 5
+# 
+# TEST 7: Quit
+# 
+cleanup
